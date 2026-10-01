@@ -6,6 +6,7 @@ import {
   setManagedImagesFromSource,
 } from "@repo/adapters";
 import { isDevWatchReload } from "@repo/db";
+import "./envqual";
 import { app } from "./app";
 import { cloudRuntimeTarget, cloudRuntimeTargetId, env, runtimeTargetId } from "@repo/platform/engine/config/env";
 import { getAuthMode } from "@repo/platform/engine/lib/auth-mode";
