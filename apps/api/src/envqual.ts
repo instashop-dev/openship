@@ -1,14 +1,11 @@
 // Deployz environment-variable qualification (instashop-dev fork only).
-// Each read below changes shape in a later commit: renamed, removed,
-// required -> optional, optional -> required.
-const renameMe = new URL(process.env.ENVQUAL_RENAME_ME_URL);
-const toBeRemoved = process.env.ENVQUAL_TO_BE_REMOVED ?? "built-in-removable";
-const requiredToOptional = new URL(process.env.ENVQUAL_REQUIRED_TO_OPTIONAL_URL);
-const optionalToRequired = process.env.ENVQUAL_OPTIONAL_TO_REQUIRED ?? "built-in-default";
+// v2: renamed, removed, required -> optional, optional -> required.
+const renamed = new URL(process.env.ENVQUAL_RENAMED_URL);
+const requiredToOptional = new URL(process.env.ENVQUAL_REQUIRED_TO_OPTIONAL_URL ?? "https://default.envqual.example.com/r2o");
+const optionalToRequired = new URL(process.env.ENVQUAL_OPTIONAL_TO_REQUIRED);
 
 export const envqual = {
-  renameMe: renameMe.host,
-  toBeRemoved,
+  renamed: renamed.host,
   requiredToOptional: requiredToOptional.host,
-  optionalToRequired,
+  optionalToRequired: optionalToRequired.host,
 };
